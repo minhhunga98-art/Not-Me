@@ -1,0 +1,27 @@
+[
+  {
+    "log_id": "LOG-1794533480",
+    "timestamp": "2026-11-13 08:31:20",
+    "actor": "Nguyễn Văn Hùng - Trưởng phòng PTKD",
+    "action": "MANAGER_CONFIRM_SHORTLIST",
+    "target_province": "Hải Phòng,Bắc Ninh",
+    "field_affected": "shortlist_provinces",
+    "previous_value": null,
+    "new_value": [
+      "Hải Phòng",
+      "Bắc Ninh"
+    ],
+    "justification": "Trưởng phòng phê duyệt chính thức 2 địa bàn ưu tiên khảo sát thực địa: Hải Phòng, Bắc Ninh."
+  },
+  {
+    "log_id": "LOG-1794533480",
+    "timestamp": "2026-11-13 08:31:20",
+    "actor": "Nguyễn Văn Hùng - Trưởng phòng PTKD",
+    "action": "FINAL_BOD_SUBMISSION",
+    "target_province": "Hải Phòng,Bắc Ninh",
+    "field_affected": "proposal_approval_status",
+    "previous_value": "DRAFT",
+    "new_value": "APPROVED_BY_BD_MANAGER_SUBMITTED_TO_BOD",
+    "justification": "Hồ sơ đã được kiểm tra chéo 100% trích dẫn Doc_ID và ký duyệt để Ban Giám đốc phê duyệt ngân sách khảo sát."
+  }
+]

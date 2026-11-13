@@ -1,0 +1,890 @@
+{
+  "workflow_id": "WF-HP-20261113083118",
+  "current_step": "EndEvent_1",
+  "current_swimlane": "LANE_3_BD_MANAGER",
+  "company_profile": {
+    "company_name": "Công ty Cổ phần Công nghệ Hưng Phát",
+    "solution_name": "Hưng Phát Smart WMS (Hệ thống Quản lý Kho Chuỗi Bán Lẻ)",
+    "value_proposition": "Giải pháp WMS chuyên sâu cho chuỗi bán lẻ đa điểm, quản lý tồn kho thời gian thực, điều phối quét mã RFID/Barcode, tối ưu lộ trình nhặt hàng (Pick-and-Pack) và tích hợp đa kênh Omni-channel.",
+    "target_customers": [
+      "Chuỗi siêu thị mini & bách hóa tiện lợi (>= 15 điểm bán)",
+      "Chuỗi phân phối thời trang, phụ kiện & mỹ phẩm (>= 10 cửa hàng)",
+      "Chuỗi điện máy, gia dụng & nội thất",
+      "Trung tâm phân phối vùng (Regional Distribution Center - RDC)"
+    ],
+    "technical_footprint": {
+      "deployment_modes": [
+        "Cloud SaaS",
+        "Hybrid On-Premise"
+      ],
+      "api_readiness": "REST API mở, kết nối ERP (SAP, Oracle NetSuite, MISA AMIS, Bravo, Fast)",
+      "sla_standard": "Hỗ trợ kỹ thuật tại chỗ trong vòng 4 giờ đối với sự cố nghiêm trọng (P1)"
+    },
+    "deployment_capacity": {
+      "hubs": [
+        {
+          "name": "Trụ sở Hà Nội",
+          "radius_km": 100,
+          "max_direct_coverage_provinces": [
+            "Hà Nội",
+            "Bắc Ninh",
+            "Hưng Yên",
+            "Vĩnh Phúc",
+            "Hà Nam"
+          ]
+        },
+        {
+          "name": "Chi nhánh TP. Hồ Chí Minh",
+          "radius_km": 100,
+          "max_direct_coverage_provinces": [
+            "TP. Hồ Chí Minh",
+            "Bình Dương",
+            "Đồng Nai",
+            "Long An"
+          ]
+        }
+      ],
+      "hurdle_rate_rules": {
+        "max_distance_direct_km": 100,
+        "max_response_time_hours": 4,
+        "score_cap_over_capacity": 80.0,
+        "outsourced_sla_monthly_vnd": 18000000,
+        "travel_support_cost_per_trip_vnd": 4500000
+      }
+    }
+  },
+  "criteria_weights": {
+    "criteria": [
+      {
+        "id": "pmf_fit",
+        "name": "Độ Khớp Giải Pháp & Nhu Cầu Thị Trường (PMF)",
+        "weight": 0.3,
+        "hurdle_minimum": 65.0,
+        "description": "Mức độ phù hợp giữa tính năng WMS của Hưng Phát và yêu cầu quản lý kho phức hợp của các chuỗi bán lẻ tại địa bàn."
+      },
+      {
+        "id": "market_size",
+        "name": "Quy Mô & Mật Độ Chuỗi Bán Lẻ Tiềm Năng",
+        "weight": 0.25,
+        "hurdle_minimum": 50.0,
+        "description": "Số lượng chuỗi bán lẻ từ 10 điểm bán trở lên, diện tích kho trung bình và tốc độ tăng trưởng doanh thu bán lẻ vùng."
+      },
+      {
+        "id": "switching_cost",
+        "name": "Sự Sẵn Sàng & Rào Cản Chuyển Đổi (Switching Cost)",
+        "weight": 0.25,
+        "hurdle_minimum": 50.0,
+        "description": "Mức độ sẵn sàng thay đổi hệ thống. Điểm cao nếu doanh nghiệp đang dùng quy trình thủ công / Excel / phần mềm rời rạc dễ thay thế; điểm trừ nếu đang ràng buộc hợp đồng ERP lớn (SAP, Oracle) có chi phí chuyển đổi cao."
+      },
+      {
+        "id": "cost_to_serve",
+        "name": "Biên Lợi Nhuận & Chi Phí Phục Vụ (Cost-to-Serve Feasibility)",
+        "weight": 0.2,
+        "hurdle_minimum": 40.0,
+        "description": "Chi phí triển khai, chi phí nhân sự onsite, bảo trì SLA và mức độ tối ưu hóa hạ tầng kết nối với trung tâm kỹ thuật."
+      }
+    ],
+    "gateway_rules": {
+      "hurdle_rate_distance_threshold_km": 100,
+      "score_cap_on_hurdle_failure": 80.0,
+      "audit_sample_ratio": 0.25,
+      "shortlist_target_count": 2
+    }
+  },
+  "raw_market_data": [
+    {
+      "raw_id": "RAW-001",
+      "source_title": "Báo cáo Toàn cảnh Thị trường Bán lẻ & Logistics Vùng Kinh tế Bắc Bộ 2025",
+      "publisher": "Viện Nghiên cứu Kinh tế & Logistics Việt Nam (VILOG)",
+      "publication_year": 2025,
+      "source_type": "primary",
+      "province": "Bắc Ninh",
+      "metrics": {
+        "retail_chain_count": 42,
+        "warehouse_density_sqm": 320000,
+        "growth_rate_pct": 14.5,
+        "distance_to_nearest_hub_km": 40,
+        "estimated_market_size_bil_vnd": 38.5
+      },
+      "direct_quote": "Bắc Ninh hiện có 42 chuỗi bán lẻ và phân phối vệ tinh với hơn 180 điểm kho bãi đang tăng trưởng 14.5% năm 2025, hưởng lợi trực tiếp từ hạ tầng kết nối với thủ đô Hà Nội chỉ 40km.",
+      "doc_id": "DOC-HP-001"
+    },
+    {
+      "raw_id": "RAW-002",
+      "source_title": "Tổng hợp Tin tức Bán lẻ Công nghiệp phía Bắc (Tạp chí Thứ cấp BizTech)",
+      "publisher": "BizTech Blog Aggregate",
+      "publication_year": 2024,
+      "source_type": "secondary",
+      "province": "Bắc Ninh",
+      "metrics": {
+        "retail_chain_count": 42,
+        "warehouse_density_sqm": 300000,
+        "growth_rate_pct": 14.0,
+        "distance_to_nearest_hub_km": 40
+      },
+      "direct_quote": "Theo báo cáo sơ bộ 2024 trích từ VILOG, Bắc Ninh duy trì khoảng 42 chuỗi bán lẻ vệ tinh quanh Hà Nội.",
+      "notes": "Trùng lặp nguồn thứ cấp với RAW-001, số liệu năm 2024 trích dẫn lại từ VILOG."
+    },
+    {
+      "raw_id": "RAW-003",
+      "source_title": "Quy hoạch Hạ tầng Thương mại Dịch vụ & Cảng biển Hải Phòng đến 2026",
+      "publisher": "Sở Công Thương & Hiệp hội Logistics Hải Phòng",
+      "publication_year": 2026,
+      "source_type": "primary",
+      "province": "Hải Phòng",
+      "metrics": {
+        "retail_chain_count": 58,
+        "warehouse_density_sqm": 580000,
+        "growth_rate_pct": 16.8,
+        "distance_to_nearest_hub_km": 120,
+        "estimated_market_size_bil_vnd": 62.0
+      },
+      "direct_quote": "Hải Phòng có 58 chuỗi bán lẻ, đại siêu thị và cụm phân phối logistics cảng biển, cách trung tâm Hà Nội 120km, thời gian di chuyển cao tốc 1 giờ 45 phút, tốc độ tăng trưởng doanh số bán lẻ đạt 16.8%.",
+      "doc_id": "DOC-HP-002"
+    },
+    {
+      "raw_id": "RAW-004",
+      "source_title": "Bản tin Thị trường Hải Phòng Info (Sao chép bài báo Sở Công Thương)",
+      "publisher": "Cổng tin tức Hải Phòng Xanh",
+      "publication_year": 2025,
+      "source_type": "secondary",
+      "province": "Hải Phòng",
+      "metrics": {
+        "retail_chain_count": 58,
+        "warehouse_density_sqm": 550000,
+        "growth_rate_pct": 16.5,
+        "distance_to_nearest_hub_km": 120
+      },
+      "direct_quote": "Thống kê từ Sở Công Thương cho thấy thành phố Cảng có 58 chuỗi bán lẻ phân phối hàng hóa lớn.",
+      "notes": "Số liệu thứ cấp sao chép từ Sở Công Thương Hải Phòng."
+    },
+    {
+      "raw_id": "RAW-005",
+      "source_title": "Báo cáo Phát triển Kinh tế Số và Bán lẻ Đô thị Đà Nẵng 2025-2026",
+      "publisher": "Viện Nghiên cứu Phát triển Kinh tế - Xã hội Đà Nẵng",
+      "publication_year": 2025,
+      "source_type": "primary",
+      "province": "Đà Nẵng",
+      "metrics": {
+        "retail_chain_count": 36,
+        "warehouse_density_sqm": 210000,
+        "growth_rate_pct": 11.2,
+        "distance_to_nearest_hub_km": 760,
+        "estimated_market_size_bil_vnd": 29.0
+      },
+      "direct_quote": "Đà Nẵng ghi nhận 36 chuỗi phân phối bán lẻ quy mô trên 10 cửa hàng, khoảng cách địa lý cách hai đầu cầu kinh tế Hà Nội và TP.HCM xấp xỉ 760km, tăng trưởng thương mại bán lẻ đạt 11.2%.",
+      "doc_id": "DOC-HP-003"
+    },
+    {
+      "raw_id": "RAW-006",
+      "source_title": "Nghiên cứu Tiềm năng Phân phối Hàng hóa & Chuỗi Cung ứng ĐBSCL 2026",
+      "publisher": "Trường Đại học Cần Thơ & Hiệp hội Doanh nghiệp Vùng",
+      "publication_year": 2026,
+      "source_type": "primary",
+      "province": "Cần Thơ",
+      "metrics": {
+        "retail_chain_count": 48,
+        "warehouse_density_sqm": 390000,
+        "growth_rate_pct": 15.2,
+        "distance_to_nearest_hub_km": 160,
+        "estimated_market_size_bil_vnd": 44.0
+      },
+      "direct_quote": "Cần Thơ đóng vai trò hạt nhân trung chuyển toàn vùng Tây Nam Bộ với 48 chuỗi bán lẻ và trung tâm phân phối tiêu dùng, cách TP.HCM 160km qua tuyến cao tốc Mỹ Thuận - Cần Thơ (khoảng 2 giờ di chuyển), tăng trưởng bán lẻ đạt 15.2%.",
+      "doc_id": "DOC-HP-004"
+    },
+    {
+      "raw_id": "RAW-007",
+      "source_title": "Bài viết Diễn đàn Đầu tư Miền Tây (Trích dẫn số liệu Cần Thơ 2023)",
+      "publisher": "Diễn đàn Kinh tế Tây Nam",
+      "publication_year": 2023,
+      "source_type": "secondary",
+      "province": "Cần Thơ",
+      "metrics": {
+        "retail_chain_count": 41,
+        "warehouse_density_sqm": 310000,
+        "growth_rate_pct": 12.0,
+        "distance_to_nearest_hub_km": 165
+      },
+      "direct_quote": "Năm 2023, Cần Thơ có khoảng 41 chuỗi phân phối hàng hóa tiêu dùng lớn nhỏ.",
+      "notes": "Dữ liệu lạc hậu năm 2023, đã có số liệu chính thống 2026 từ ĐH Cần Thơ."
+    }
+  ],
+  "customer_feedback": [
+    {
+      "province": "Bắc Ninh",
+      "doc_id": "DOC-HP-005",
+      "survey_sample_size": 25,
+      "current_system_breakdown": {
+        "excel_manual": 32,
+        "local_accounting_software": 48,
+        "tier1_erp_sap_oracle": 20
+      },
+      "feature_match_pct": 88.0,
+      "switching_barrier_level": "LOW_TO_MEDIUM",
+      "readiness_score": 85.0,
+      "quote": "72% chuỗi bán lẻ tại Bắc Ninh cần giải pháp quét mã vạch và định vị ô kệ kho vệ tinh; hầu hết dùng phần mềm kế toán nội địa nên việc tích hợp API diễn ra nhanh chóng, rào cản chuyển đổi thấp.",
+      "key_pain_points": [
+        "Kiểm kê kho chậm trễ, sai lệch số tồn kho thực tế với quầy bán",
+        "Thiếu khả năng tự động hóa lộ trình nhặt hàng theo đơn đa kênh"
+      ]
+    },
+    {
+      "province": "Hải Phòng",
+      "doc_id": "DOC-HP-006",
+      "survey_sample_size": 30,
+      "current_system_breakdown": {
+        "excel_manual": 15,
+        "local_accounting_software": 50,
+        "tier1_erp_sap_oracle": 35
+      },
+      "feature_match_pct": 92.0,
+      "switching_barrier_level": "MEDIUM_HIGH",
+      "readiness_score": 75.0,
+      "quote": "Nhu cầu quản lý kho tại Hải Phòng rất tinh vi với bài toán quản lý lô/hạn dùng (Batch/Expiry) cho hàng nhập khẩu; 35% doanh nghiệp đang duy trì ERP lớn như SAP B1 nên chi phí chuyển đổi cao, cần chiến lược tích hợp dạng Module WMS mở rộng thay vì thay thế toàn diện.",
+      "key_pain_points": [
+        "Quản lý hạn sử dụng và đảo hàng FEFO/FIFO cho chuỗi thực phẩm",
+        "Tắc nghẽn xuất nhập hàng tại cửa kho giờ cao điểm"
+      ]
+    },
+    {
+      "province": "Đà Nẵng",
+      "doc_id": "DOC-HP-007",
+      "survey_sample_size": 20,
+      "current_system_breakdown": {
+        "excel_manual": 40,
+        "local_accounting_software": 45,
+        "tier1_erp_sap_oracle": 15
+      },
+      "feature_match_pct": 74.0,
+      "switching_barrier_level": "MEDIUM",
+      "readiness_score": 68.0,
+      "quote": "Doanh nghiệp Đà Nẵng hứng thú với mô hình SaaS chi phí linh hoạt nhưng 80% khách hàng yêu cầu cam kết hỗ trợ onsite trong vòng 4 giờ; họ e ngại Hưng Phát chưa có kỹ sư thường trực tại miền Trung.",
+      "key_pain_points": [
+        "E ngại rủi ro dừng kho nếu hệ thống lỗi mà không có kỹ sư tại chỗ",
+        "Ngân sách đầu tư ban đầu cho thiết bị RFID/PDA còn hạn hẹp"
+      ]
+    },
+    {
+      "province": "Cần Thơ",
+      "doc_id": "DOC-HP-008",
+      "survey_sample_size": 28,
+      "current_system_breakdown": {
+        "excel_manual": 55,
+        "local_accounting_software": 38,
+        "tier1_erp_sap_oracle": 7
+      },
+      "feature_match_pct": 86.0,
+      "switching_barrier_level": "VERY_LOW",
+      "readiness_score": 92.0,
+      "quote": "Hơn 90% doanh nghiệp Cần Thơ đang dùng phương pháp thủ công và phần mềm bán hàng cơ bản; không vướng mắc hợp đồng ERP đắt tiền, nhu cầu số hóa quy trình kho rất khát khao và thời gian ra quyết định chuyển đổi nhanh.",
+      "key_pain_points": [
+        "Thất thoát hàng hóa và sai sót số liệu tồn kho do ghi chép tay",
+        "Thiếu nhân lực kho thành thạo công nghệ, cần phần mềm cực kỳ dễ thao tác"
+      ]
+    }
+  ],
+  "deployment_capacity": {
+    "support_hubs": [
+      {
+        "hub_id": "HUB-HN",
+        "city": "Hà Nội",
+        "active_engineers": 12,
+        "max_direct_radius_km": 100,
+        "standard_sla_hours": 4
+      },
+      {
+        "hub_id": "HUB-HCM",
+        "city": "TP. Hồ Chí Minh",
+        "active_engineers": 16,
+        "max_direct_radius_km": 100,
+        "standard_sla_hours": 4
+      }
+    ],
+    "candidate_provinces_feasibility": {
+      "Bắc Ninh": {
+        "assigned_hub": "HUB-HN",
+        "distance_km": 40,
+        "travel_time_hours": 0.8,
+        "meets_direct_sla": true,
+        "hurdle_status": "PASS",
+        "reason": "Nằm hoàn toàn trong bán kính phục vụ 100km của Trụ sở Hà Nội. Đội phản ứng nhanh có mặt dưới 1 giờ."
+      },
+      "Hải Phòng": {
+        "assigned_hub": "HUB-HN",
+        "distance_km": 120,
+        "travel_time_hours": 1.75,
+        "meets_direct_sla": true,
+        "hurdle_status": "PASS",
+        "reason": "Khoảng cách 120km qua tuyến cao tốc Hà Nội - Hải Phòng cho phép di chuyển trong 1 giờ 45 phút, đáp ứng chuẩn SLA cam kết 4 giờ."
+      },
+      "Đà Nẵng": {
+        "assigned_hub": null,
+        "distance_km": 760,
+        "travel_time_hours": 8.5,
+        "meets_direct_sla": false,
+        "hurdle_status": "FAIL_CAPACITY",
+        "reason": "Cách hai trung tâm kỹ thuật 760km. Không thể đáp ứng cam kết hỗ trợ tại chỗ 4 giờ nếu chỉ dựa vào nhân sự bay từ HN/HCM. Vượt ngưỡng sàn triển khai trực tiếp.",
+        "cost_to_serve_model": {
+          "score_cap": 80.0,
+          "outsourced_partner_retainer_monthly_vnd": 18000000,
+          "quarterly_onsite_audit_trip_vnd": 6000000,
+          "estimated_annual_extra_cost_vnd": 240000000,
+          "margin_impact_pct": -12.5,
+          "recommendation": "Phải thiết lập thỏa thuận đối tác đại lý IT ủy quyền tại Đà Nẵng để đảm bảo SLA."
+        }
+      },
+      "Cần Thơ": {
+        "assigned_hub": "HUB-HCM",
+        "distance_km": 160,
+        "travel_time_hours": 2.0,
+        "meets_direct_sla": true,
+        "hurdle_status": "PASS",
+        "reason": "Khoảng cách 160km qua cao tốc Mỹ Thuận - Cần Thơ mất 2 giờ di chuyển, nằm trong biên an toàn của SLA 4 giờ từ Chi nhánh TP.HCM."
+      }
+    }
+  },
+  "parameter_overrides": {
+    "score_overrides": {},
+    "weights": {}
+  },
+  "audit_logs": [
+    {
+      "log_id": "LOG-1794533480",
+      "timestamp": "2026-11-13 08:31:20",
+      "actor": "Nguyễn Văn Hùng - Trưởng phòng PTKD",
+      "action": "MANAGER_CONFIRM_SHORTLIST",
+      "target_province": "Hải Phòng,Bắc Ninh",
+      "field_affected": "shortlist_provinces",
+      "previous_value": null,
+      "new_value": [
+        "Hải Phòng",
+        "Bắc Ninh"
+      ],
+      "justification": "Trưởng phòng phê duyệt chính thức 2 địa bàn ưu tiên khảo sát thực địa: Hải Phòng, Bắc Ninh."
+    },
+    {
+      "log_id": "LOG-1794533480",
+      "timestamp": "2026-11-13 08:31:20",
+      "actor": "Nguyễn Văn Hùng - Trưởng phòng PTKD",
+      "action": "FINAL_BOD_SUBMISSION",
+      "target_province": "Hải Phòng,Bắc Ninh",
+      "field_affected": "proposal_approval_status",
+      "previous_value": "DRAFT",
+      "new_value": "APPROVED_BY_BD_MANAGER_SUBMITTED_TO_BOD",
+      "justification": "Hồ sơ đã được kiểm tra chéo 100% trích dẫn Doc_ID và ký duyệt để Ban Giám đốc phê duyệt ngân sách khảo sát."
+    }
+  ],
+  "history": [
+    {
+      "timestamp": "2026-11-13 08:31:18",
+      "node": "INITIALIZE",
+      "message": "Khởi tạo hệ thống workflow BPMN 2.0 Công ty Hưng Phát.",
+      "swimlane": "LANE_1_AI_AGENT"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Task_CleanData",
+      "message": "Hoàn tất chuẩn hóa số liệu và cấp Doc_ID.",
+      "swimlane": "LANE_1_AI_AGENT"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Task_CleanData",
+      "message": "Hoàn tất chuẩn hóa số liệu và cấp Doc_ID.",
+      "swimlane": "LANE_1_AI_AGENT"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Task_FitAnalysis",
+      "message": "Hoàn tất ma trận PMF và kiểm tra ngưỡng sàn SLA.",
+      "swimlane": "LANE_1_AI_AGENT"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Gateway_HurdleRate",
+      "message": "Phát hiện địa bàn vượt năng lực hỗ trợ tại chỗ -> Kích hoạt nhánh Task 1.3a Cost-to-Serve.",
+      "swimlane": "LANE_1_AI_AGENT"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Task_CostToServe",
+      "message": "Hoàn tất tính chi phí thuê ngoài và áp Score Cap.",
+      "swimlane": "LANE_1_AI_AGENT"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Task_Scoring",
+      "message": "Hoàn tất xếp hạng 4 địa bàn kèm 100% trích dẫn Doc_ID.",
+      "swimlane": "LANE_1_AI_AGENT"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Task_AuditSample",
+      "message": "Sinh danh sách 4 mẫu trích dẫn cho nhân viên kiểm tra.",
+      "swimlane": "LANE_2_PTKD_STAFF"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Gateway_DataValid",
+      "message": "100% mẫu kiểm tra khớp chính xác với tài liệu gốc -> Chuyển Lane 3.",
+      "swimlane": "LANE_2_PTKD_STAFF"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Task_ReviewShortlist",
+      "message": "Trưởng phòng hoàn tất rà soát bảng xếp hạng.",
+      "swimlane": "LANE_3_BD_MANAGER"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Gateway_ShortlistApproved",
+      "message": "Trưởng phòng chốt 2 địa bàn: ['Hải Phòng', 'Bắc Ninh'] -> Kích hoạt Task 1.5.",
+      "swimlane": "LANE_3_BD_MANAGER"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "Task_GenerateProposal",
+      "message": "Đã tạo Hồ sơ đề xuất khảo sát (Markdown, JSON, DOCX).",
+      "swimlane": "LANE_1_AI_AGENT"
+    },
+    {
+      "timestamp": "2026-11-13 08:31:20",
+      "node": "EndEvent_1",
+      "message": "Quy trình hoàn tất: Hồ sơ đã được trình Ban Giám đốc.",
+      "swimlane": "LANE_3_BD_MANAGER"
+    }
+  ],
+  "clean_dataset": [
+    {
+      "doc_id": "DOC-HP-001",
+      "raw_id": "RAW-001",
+      "province": "Bắc Ninh",
+      "source_title": "Báo cáo Toàn cảnh Thị trường Bán lẻ & Logistics Vùng Kinh tế Bắc Bộ 2025",
+      "publisher": "Viện Nghiên cứu Kinh tế & Logistics Việt Nam (VILOG)",
+      "publication_year": 2025,
+      "normalized_year": 2026,
+      "metrics": {
+        "retail_chain_count": 48,
+        "warehouse_density_sqm": 320000,
+        "growth_rate_pct": 14.5,
+        "distance_to_nearest_hub_km": 40,
+        "estimated_market_size_bil_vnd": 38.5,
+        "_normalized_note": "Quy đổi từ 2025 (42 chuỗi) sang 2026 (+14.499999999999998%/năm) = 48 chuỗi"
+      },
+      "direct_quote": "Bắc Ninh hiện có 42 chuỗi bán lẻ và phân phối vệ tinh với hơn 180 điểm kho bãi đang tăng trưởng 14.5% năm 2025, hưởng lợi trực tiếp từ hạ tầng kết nối với thủ đô Hà Nội chỉ 40km.",
+      "source_type": "primary",
+      "verification_hash": "fc9a7e64-46c"
+    },
+    {
+      "doc_id": "DOC-HP-002",
+      "raw_id": "RAW-003",
+      "province": "Hải Phòng",
+      "source_title": "Quy hoạch Hạ tầng Thương mại Dịch vụ & Cảng biển Hải Phòng đến 2026",
+      "publisher": "Sở Công Thương & Hiệp hội Logistics Hải Phòng",
+      "publication_year": 2026,
+      "normalized_year": 2026,
+      "metrics": {
+        "retail_chain_count": 58,
+        "warehouse_density_sqm": 580000,
+        "growth_rate_pct": 16.8,
+        "distance_to_nearest_hub_km": 120,
+        "estimated_market_size_bil_vnd": 62.0
+      },
+      "direct_quote": "Hải Phòng có 58 chuỗi bán lẻ, đại siêu thị và cụm phân phối logistics cảng biển, cách trung tâm Hà Nội 120km, thời gian di chuyển cao tốc 1 giờ 45 phút, tốc độ tăng trưởng doanh số bán lẻ đạt 16.8%.",
+      "source_type": "primary",
+      "verification_hash": "38405246-cfd"
+    },
+    {
+      "doc_id": "DOC-HP-003",
+      "raw_id": "RAW-005",
+      "province": "Đà Nẵng",
+      "source_title": "Báo cáo Phát triển Kinh tế Số và Bán lẻ Đô thị Đà Nẵng 2025-2026",
+      "publisher": "Viện Nghiên cứu Phát triển Kinh tế - Xã hội Đà Nẵng",
+      "publication_year": 2025,
+      "normalized_year": 2026,
+      "metrics": {
+        "retail_chain_count": 40,
+        "warehouse_density_sqm": 210000,
+        "growth_rate_pct": 11.2,
+        "distance_to_nearest_hub_km": 760,
+        "estimated_market_size_bil_vnd": 29.0,
+        "_normalized_note": "Quy đổi từ 2025 (36 chuỗi) sang 2026 (+11.2%/năm) = 40 chuỗi"
+      },
+      "direct_quote": "Đà Nẵng ghi nhận 36 chuỗi phân phối bán lẻ quy mô trên 10 cửa hàng, khoảng cách địa lý cách hai đầu cầu kinh tế Hà Nội và TP.HCM xấp xỉ 760km, tăng trưởng thương mại bán lẻ đạt 11.2%.",
+      "source_type": "primary",
+      "verification_hash": "b60a7461-676"
+    },
+    {
+      "doc_id": "DOC-HP-004",
+      "raw_id": "RAW-006",
+      "province": "Cần Thơ",
+      "source_title": "Nghiên cứu Tiềm năng Phân phối Hàng hóa & Chuỗi Cung ứng ĐBSCL 2026",
+      "publisher": "Trường Đại học Cần Thơ & Hiệp hội Doanh nghiệp Vùng",
+      "publication_year": 2026,
+      "normalized_year": 2026,
+      "metrics": {
+        "retail_chain_count": 48,
+        "warehouse_density_sqm": 390000,
+        "growth_rate_pct": 15.2,
+        "distance_to_nearest_hub_km": 160,
+        "estimated_market_size_bil_vnd": 44.0
+      },
+      "direct_quote": "Cần Thơ đóng vai trò hạt nhân trung chuyển toàn vùng Tây Nam Bộ với 48 chuỗi bán lẻ và trung tâm phân phối tiêu dùng, cách TP.HCM 160km qua tuyến cao tốc Mỹ Thuận - Cần Thơ (khoảng 2 giờ di chuyển), tăng trưởng bán lẻ đạt 15.2%.",
+      "source_type": "primary",
+      "verification_hash": "e4a49577-5f6"
+    }
+  ],
+  "clean_dataset_artifact": "c:\\Agent\\artifacts\\clean_dataset.json",
+  "discarded_data": [
+    {
+      "raw_id": "RAW-002",
+      "province": "Bắc Ninh",
+      "reason": "Nguồn thứ cấp/sao chép (BizTech Blog Aggregate). Ghi chú: Trùng lặp nguồn thứ cấp với RAW-001, số liệu năm 2024 trích dẫn lại từ VILOG."
+    },
+    {
+      "raw_id": "RAW-004",
+      "province": "Hải Phòng",
+      "reason": "Nguồn thứ cấp/sao chép (Cổng tin tức Hải Phòng Xanh). Ghi chú: Số liệu thứ cấp sao chép từ Sở Công Thương Hải Phòng."
+    },
+    {
+      "raw_id": "RAW-007",
+      "province": "Cần Thơ",
+      "reason": "Nguồn thứ cấp/sao chép (Diễn đàn Kinh tế Tây Nam). Ghi chú: Dữ liệu lạc hậu năm 2023, đã có số liệu chính thống 2026 từ ĐH Cần Thơ."
+    }
+  ],
+  "fit_feasibility_records": [
+    {
+      "province": "Bắc Ninh",
+      "doc_id_market": "DOC-HP-001",
+      "doc_id_feedback": "DOC-HP-005",
+      "feature_match_pct": 88.0,
+      "switching_barrier": "LOW_TO_MEDIUM",
+      "readiness_score": 85.0,
+      "distance_km": 40,
+      "travel_time_hours": 0.8,
+      "meets_direct_sla": true,
+      "hurdle_status": "PASS",
+      "rationale": "Độ khớp PMF đạt 88.0%. Rào cản chuyển đổi: LOW_TO_MEDIUM (Điểm sẵn sàng: 85.0/100). Khoảng cách tới hub kỹ thuật: 40km (0.8h di chuyển). Trạng thái SLA trực tiếp 4h: Đạt.",
+      "assigned_hub": "HUB-HN"
+    },
+    {
+      "province": "Hải Phòng",
+      "doc_id_market": "DOC-HP-002",
+      "doc_id_feedback": "DOC-HP-006",
+      "feature_match_pct": 92.0,
+      "switching_barrier": "MEDIUM_HIGH",
+      "readiness_score": 75.0,
+      "distance_km": 120,
+      "travel_time_hours": 1.75,
+      "meets_direct_sla": true,
+      "hurdle_status": "PASS",
+      "rationale": "Độ khớp PMF đạt 92.0%. Rào cản chuyển đổi: MEDIUM_HIGH (Điểm sẵn sàng: 75.0/100). Khoảng cách tới hub kỹ thuật: 120km (1.75h di chuyển). Trạng thái SLA trực tiếp 4h: Đạt.",
+      "assigned_hub": "HUB-HN"
+    },
+    {
+      "province": "Đà Nẵng",
+      "doc_id_market": "DOC-HP-003",
+      "doc_id_feedback": "DOC-HP-007",
+      "feature_match_pct": 74.0,
+      "switching_barrier": "MEDIUM",
+      "readiness_score": 68.0,
+      "distance_km": 760,
+      "travel_time_hours": 8.5,
+      "meets_direct_sla": false,
+      "hurdle_status": "FAIL_CAPACITY",
+      "rationale": "Độ khớp PMF đạt 74.0%. Rào cản chuyển đổi: MEDIUM (Điểm sẵn sàng: 68.0/100). Khoảng cách tới hub kỹ thuật: 760km (8.5h di chuyển). Trạng thái SLA trực tiếp 4h: Vượt năng lực hỗ trợ tại chỗ.",
+      "assigned_hub": null
+    },
+    {
+      "province": "Cần Thơ",
+      "doc_id_market": "DOC-HP-004",
+      "doc_id_feedback": "DOC-HP-008",
+      "feature_match_pct": 86.0,
+      "switching_barrier": "VERY_LOW",
+      "readiness_score": 92.0,
+      "distance_km": 160,
+      "travel_time_hours": 2.0,
+      "meets_direct_sla": true,
+      "hurdle_status": "PASS",
+      "rationale": "Độ khớp PMF đạt 86.0%. Rào cản chuyển đổi: VERY_LOW (Điểm sẵn sàng: 92.0/100). Khoảng cách tới hub kỹ thuật: 160km (2.0h di chuyển). Trạng thái SLA trực tiếp 4h: Đạt.",
+      "assigned_hub": "HUB-HCM"
+    }
+  ],
+  "gateway_1_routing": {
+    "Bắc Ninh": "DIRECT_TO_SCORING (Task 1.4)",
+    "Hải Phòng": "DIRECT_TO_SCORING (Task 1.4)",
+    "Đà Nẵng": "ROUTE_TO_COST_ANALYZER (Task 1.3a)",
+    "Cần Thơ": "DIRECT_TO_SCORING (Task 1.4)"
+  },
+  "fit_feasibility_artifact": "c:\\Agent\\artifacts\\fit_feasibility_matrix.json",
+  "cost_to_serve_records": {
+    "Đà Nẵng": {
+      "province": "Đà Nẵng",
+      "is_capped": true,
+      "score_cap": 80.0,
+      "outsourced_partner_monthly_vnd": 18000000,
+      "quarterly_trip_vnd": 6000000,
+      "annual_extra_cost_vnd": 240000000,
+      "margin_impact_pct": -12.5,
+      "mitigation_strategy": "Phải thiết lập thỏa thuận đối tác đại lý IT ủy quyền tại Đà Nẵng để đảm bảo SLA."
+    }
+  },
+  "cost_to_serve_artifact": "c:\\Agent\\artifacts\\cost_to_serve_analysis.json",
+  "score_results": [
+    {
+      "province": "Hải Phòng",
+      "rank": 1,
+      "raw_composite_score": 88.12,
+      "is_score_capped": false,
+      "score_cap": null,
+      "final_score": 88.12,
+      "criteria_scores": [
+        "CriterionScoreItem(criterion_id='pmf_fit', criterion_name='Độ Khớp Giải Pháp & PMF', weight=0.3, raw_score=92.0, weighted_score=27.6, doc_id='DOC-HP-006', citation_quote='Nhu cầu quản lý kho tại Hải Phòng rất tinh vi với bài toán quản lý lô/hạn dùng (Batch/Expiry) cho hàng nhập khẩu; 35% doanh nghiệp đang duy trì ERP lớn như SAP B1 nên chi phí chuyển đổi cao, cần chiến lược tích hợp dạng Module WMS mở rộng thay vì thay thế toàn diện.', data_source_title='Khảo sát PTKD Hưng Phát (Hải Phòng)')",
+        "CriterionScoreItem(criterion_id='market_size', criterion_name='Quy Mô & Mật Độ Chuỗi Bán Lẻ', weight=0.25, raw_score=96.7, weighted_score=24.17, doc_id='DOC-HP-002', citation_quote='Hải Phòng có 58 chuỗi bán lẻ, đại siêu thị và cụm phân phối logistics cảng biển, cách trung tâm Hà Nội 120km, thời gian di chuyển cao tốc 1 giờ 45 phút, tốc độ tăng trưởng doanh số bán lẻ đạt 16.8%.', data_source_title='Quy hoạch Hạ tầng Thương mại Dịch vụ & Cảng biển Hải Phòng đến 2026')",
+        "CriterionScoreItem(criterion_id='switching_cost', criterion_name='Sự Sẵn Sàng & Chi Phí Chuyển Đổi', weight=0.25, raw_score=75.0, weighted_score=18.75, doc_id='DOC-HP-006', citation_quote='Rào cản chuyển đổi MEDIUM_HIGH. Nhu cầu quản lý kho tại Hải Phòng rất tinh vi với bài toán quản lý lô/hạn dùng (Batch/Expiry) cho hàng nhập khẩu; 35% doanh nghiệp đang duy trì ERP lớn như SAP B1 nên chi phí chuyển đổi cao, cần chiến lược tích hợp dạng Module WMS mở rộng thay vì thay thế toàn diện.', data_source_title='Đánh giá rào cản chuyển đổi hệ thống ERP (Hải Phòng)')",
+        "CriterionScoreItem(criterion_id='cost_to_serve', criterion_name='Chi Phí Phục Vụ & Khả Thi Triển Khai', weight=0.2, raw_score=88.0, weighted_score=17.6, doc_id='DOC-HP-002', citation_quote='Khoảng cách 120km. Thời gian tiếp cận 1.75h. Đạt SLA trực tiếp', data_source_title='Quy hoạch năng lực kỹ thuật Hưng Phát')"
+      ],
+      "cost_to_serve_flag": false,
+      "notes": "Đạt tiêu chuẩn hỗ trợ tại chỗ trực tiếp từ trung tâm kỹ thuật."
+    },
+    {
+      "province": "Bắc Ninh",
+      "rank": 2,
+      "raw_composite_score": 86.85,
+      "is_score_capped": false,
+      "score_cap": null,
+      "final_score": 86.85,
+      "criteria_scores": [
+        "CriterionScoreItem(criterion_id='pmf_fit', criterion_name='Độ Khớp Giải Pháp & PMF', weight=0.3, raw_score=88.0, weighted_score=26.4, doc_id='DOC-HP-005', citation_quote='72% chuỗi bán lẻ tại Bắc Ninh cần giải pháp quét mã vạch và định vị ô kệ kho vệ tinh; hầu hết dùng phần mềm kế toán nội địa nên việc tích hợp API diễn ra nhanh chóng, rào cản chuyển đổi thấp.', data_source_title='Khảo sát PTKD Hưng Phát (Bắc Ninh)')",
+        "CriterionScoreItem(criterion_id='market_size', criterion_name='Quy Mô & Mật Độ Chuỗi Bán Lẻ', weight=0.25, raw_score=80.0, weighted_score=20.0, doc_id='DOC-HP-001', citation_quote='Bắc Ninh hiện có 42 chuỗi bán lẻ và phân phối vệ tinh với hơn 180 điểm kho bãi đang tăng trưởng 14.5% năm 2025, hưởng lợi trực tiếp từ hạ tầng kết nối với thủ đô Hà Nội chỉ 40km.', data_source_title='Báo cáo Toàn cảnh Thị trường Bán lẻ & Logistics Vùng Kinh tế Bắc Bộ 2025')",
+        "CriterionScoreItem(criterion_id='switching_cost', criterion_name='Sự Sẵn Sàng & Chi Phí Chuyển Đổi', weight=0.25, raw_score=85.0, weighted_score=21.25, doc_id='DOC-HP-005', citation_quote='Rào cản chuyển đổi LOW_TO_MEDIUM. 72% chuỗi bán lẻ tại Bắc Ninh cần giải pháp quét mã vạch và định vị ô kệ kho vệ tinh; hầu hết dùng phần mềm kế toán nội địa nên việc tích hợp API diễn ra nhanh chóng, rào cản chuyển đổi thấp.', data_source_title='Đánh giá rào cản chuyển đổi hệ thống ERP (Bắc Ninh)')",
+        "CriterionScoreItem(criterion_id='cost_to_serve', criterion_name='Chi Phí Phục Vụ & Khả Thi Triển Khai', weight=0.2, raw_score=96.0, weighted_score=19.2, doc_id='DOC-HP-001', citation_quote='Khoảng cách 40km. Thời gian tiếp cận 0.8h. Đạt SLA trực tiếp', data_source_title='Quy hoạch năng lực kỹ thuật Hưng Phát')"
+      ],
+      "cost_to_serve_flag": false,
+      "notes": "Đạt tiêu chuẩn hỗ trợ tại chỗ trực tiếp từ trung tâm kỹ thuật."
+    },
+    {
+      "province": "Cần Thơ",
+      "rank": 3,
+      "raw_composite_score": 85.6,
+      "is_score_capped": false,
+      "score_cap": null,
+      "final_score": 85.6,
+      "criteria_scores": [
+        "CriterionScoreItem(criterion_id='pmf_fit', criterion_name='Độ Khớp Giải Pháp & PMF', weight=0.3, raw_score=86.0, weighted_score=25.8, doc_id='DOC-HP-008', citation_quote='Hơn 90% doanh nghiệp Cần Thơ đang dùng phương pháp thủ công và phần mềm bán hàng cơ bản; không vướng mắc hợp đồng ERP đắt tiền, nhu cầu số hóa quy trình kho rất khát khao và thời gian ra quyết định chuyển đổi nhanh.', data_source_title='Khảo sát PTKD Hưng Phát (Cần Thơ)')",
+        "CriterionScoreItem(criterion_id='market_size', criterion_name='Quy Mô & Mật Độ Chuỗi Bán Lẻ', weight=0.25, raw_score=80.0, weighted_score=20.0, doc_id='DOC-HP-004', citation_quote='Cần Thơ đóng vai trò hạt nhân trung chuyển toàn vùng Tây Nam Bộ với 48 chuỗi bán lẻ và trung tâm phân phối tiêu dùng, cách TP.HCM 160km qua tuyến cao tốc Mỹ Thuận - Cần Thơ (khoảng 2 giờ di chuyển), tăng trưởng bán lẻ đạt 15.2%.', data_source_title='Nghiên cứu Tiềm năng Phân phối Hàng hóa & Chuỗi Cung ứng ĐBSCL 2026')",
+        "CriterionScoreItem(criterion_id='switching_cost', criterion_name='Sự Sẵn Sàng & Chi Phí Chuyển Đổi', weight=0.25, raw_score=92.0, weighted_score=23.0, doc_id='DOC-HP-008', citation_quote='Rào cản chuyển đổi VERY_LOW. Hơn 90% doanh nghiệp Cần Thơ đang dùng phương pháp thủ công và phần mềm bán hàng cơ bản; không vướng mắc hợp đồng ERP đắt tiền, nhu cầu số hóa quy trình kho rất khát khao và thời gian ra quyết định chuyển đổi nhanh.', data_source_title='Đánh giá rào cản chuyển đổi hệ thống ERP (Cần Thơ)')",
+        "CriterionScoreItem(criterion_id='cost_to_serve', criterion_name='Chi Phí Phục Vụ & Khả Thi Triển Khai', weight=0.2, raw_score=84.0, weighted_score=16.8, doc_id='DOC-HP-004', citation_quote='Khoảng cách 160km. Thời gian tiếp cận 2.0h. Đạt SLA trực tiếp', data_source_title='Quy hoạch năng lực kỹ thuật Hưng Phát')"
+      ],
+      "cost_to_serve_flag": false,
+      "notes": "Đạt tiêu chuẩn hỗ trợ tại chỗ trực tiếp từ trung tâm kỹ thuật."
+    },
+    {
+      "province": "Đà Nẵng",
+      "rank": 4,
+      "raw_composite_score": 66.87,
+      "is_score_capped": true,
+      "score_cap": 80.0,
+      "final_score": 66.87,
+      "criteria_scores": [
+        "CriterionScoreItem(criterion_id='pmf_fit', criterion_name='Độ Khớp Giải Pháp & PMF', weight=0.3, raw_score=74.0, weighted_score=22.2, doc_id='DOC-HP-007', citation_quote='Doanh nghiệp Đà Nẵng hứng thú với mô hình SaaS chi phí linh hoạt nhưng 80% khách hàng yêu cầu cam kết hỗ trợ onsite trong vòng 4 giờ; họ e ngại Hưng Phát chưa có kỹ sư thường trực tại miền Trung.', data_source_title='Khảo sát PTKD Hưng Phát (Đà Nẵng)')",
+        "CriterionScoreItem(criterion_id='market_size', criterion_name='Quy Mô & Mật Độ Chuỗi Bán Lẻ', weight=0.25, raw_score=66.7, weighted_score=16.67, doc_id='DOC-HP-003', citation_quote='Đà Nẵng ghi nhận 36 chuỗi phân phối bán lẻ quy mô trên 10 cửa hàng, khoảng cách địa lý cách hai đầu cầu kinh tế Hà Nội và TP.HCM xấp xỉ 760km, tăng trưởng thương mại bán lẻ đạt 11.2%.', data_source_title='Báo cáo Phát triển Kinh tế Số và Bán lẻ Đô thị Đà Nẵng 2025-2026')",
+        "CriterionScoreItem(criterion_id='switching_cost', criterion_name='Sự Sẵn Sàng & Chi Phí Chuyển Đổi', weight=0.25, raw_score=68.0, weighted_score=17.0, doc_id='DOC-HP-007', citation_quote='Rào cản chuyển đổi MEDIUM. Doanh nghiệp Đà Nẵng hứng thú với mô hình SaaS chi phí linh hoạt nhưng 80% khách hàng yêu cầu cam kết hỗ trợ onsite trong vòng 4 giờ; họ e ngại Hưng Phát chưa có kỹ sư thường trực tại miền Trung.', data_source_title='Đánh giá rào cản chuyển đổi hệ thống ERP (Đà Nẵng)')",
+        "CriterionScoreItem(criterion_id='cost_to_serve', criterion_name='Chi Phí Phục Vụ & Khả Thi Triển Khai', weight=0.2, raw_score=55.0, weighted_score=11.0, doc_id='DOC-HP-003', citation_quote='Khoảng cách 760km. Thời gian tiếp cận 8.5h. Cần đối tác ủy quyền thuê ngoài.', data_source_title='Quy hoạch năng lực kỹ thuật Hưng Phát')"
+      ],
+      "cost_to_serve_flag": true,
+      "notes": "Có gắn cờ Cost-to-Serve nhưng điểm thô (66.87) không vượt trần 80.0."
+    }
+  ],
+  "scorecard_artifact": "c:\\Agent\\artifacts\\scorecard_rationale.json",
+  "audit_samples": [
+    {
+      "sample_id": "AUDIT-SMP-001",
+      "province": "Hải Phòng",
+      "criterion_id": "cost_to_serve",
+      "criterion_name": "Chi Phí Phục Vụ & Khả Thi Triển Khai",
+      "score_assigned": 88.0,
+      "doc_id": "DOC-HP-002",
+      "citation_quote": "Khoảng cách 120km. Thời gian tiếp cận 1.75h. Đạt SLA trực tiếp",
+      "source_title": "Quy hoạch năng lực kỹ thuật Hưng Phát",
+      "verified": false,
+      "mismatch_detected": false,
+      "human_notes": ""
+    },
+    {
+      "sample_id": "AUDIT-SMP-002",
+      "province": "Đà Nẵng",
+      "criterion_id": "pmf_fit",
+      "criterion_name": "Độ Khớp Giải Pháp & PMF",
+      "score_assigned": 74.0,
+      "doc_id": "DOC-HP-007",
+      "citation_quote": "Doanh nghiệp Đà Nẵng hứng thú với mô hình SaaS chi phí linh hoạt nhưng 80% khách hàng yêu cầu cam kết hỗ trợ onsite trong vòng 4 giờ; họ e ngại Hưng Phát chưa có kỹ sư thường trực tại miền Trung.",
+      "source_title": "Khảo sát PTKD Hưng Phát (Đà Nẵng)",
+      "verified": false,
+      "mismatch_detected": false,
+      "human_notes": ""
+    },
+    {
+      "sample_id": "AUDIT-SMP-003",
+      "province": "Cần Thơ",
+      "criterion_id": "pmf_fit",
+      "criterion_name": "Độ Khớp Giải Pháp & PMF",
+      "score_assigned": 86.0,
+      "doc_id": "DOC-HP-008",
+      "citation_quote": "Hơn 90% doanh nghiệp Cần Thơ đang dùng phương pháp thủ công và phần mềm bán hàng cơ bản; không vướng mắc hợp đồng ERP đắt tiền, nhu cầu số hóa quy trình kho rất khát khao và thời gian ra quyết định chuyển đổi nhanh.",
+      "source_title": "Khảo sát PTKD Hưng Phát (Cần Thơ)",
+      "verified": false,
+      "mismatch_detected": false,
+      "human_notes": ""
+    },
+    {
+      "sample_id": "AUDIT-SMP-004",
+      "province": "Bắc Ninh",
+      "criterion_id": "pmf_fit",
+      "criterion_name": "Độ Khớp Giải Pháp & PMF",
+      "score_assigned": 88.0,
+      "doc_id": "DOC-HP-005",
+      "citation_quote": "72% chuỗi bán lẻ tại Bắc Ninh cần giải pháp quét mã vạch và định vị ô kệ kho vệ tinh; hầu hết dùng phần mềm kế toán nội địa nên việc tích hợp API diễn ra nhanh chóng, rào cản chuyển đổi thấp.",
+      "source_title": "Khảo sát PTKD Hưng Phát (Bắc Ninh)",
+      "verified": false,
+      "mismatch_detected": false,
+      "human_notes": ""
+    }
+  ],
+  "manager_review_summary": {
+    "top_candidates": [
+      {
+        "rank": 1,
+        "province": "Hải Phòng",
+        "score": 88.12,
+        "cost_to_serve_flag": false,
+        "notes": "Đạt tiêu chuẩn hỗ trợ tại chỗ trực tiếp từ trung tâm kỹ thuật."
+      },
+      {
+        "rank": 2,
+        "province": "Bắc Ninh",
+        "score": 86.85,
+        "cost_to_serve_flag": false,
+        "notes": "Đạt tiêu chuẩn hỗ trợ tại chỗ trực tiếp từ trung tâm kỹ thuật."
+      }
+    ],
+    "runners_up": [
+      {
+        "rank": 3,
+        "province": "Cần Thơ",
+        "score": 85.6,
+        "cost_to_serve_flag": false,
+        "notes": "Đạt tiêu chuẩn hỗ trợ tại chỗ trực tiếp từ trung tâm kỹ thuật."
+      },
+      {
+        "rank": 4,
+        "province": "Đà Nẵng",
+        "score": 66.87,
+        "cost_to_serve_flag": true,
+        "notes": "Có gắn cờ Cost-to-Serve nhưng điểm thô (66.87) không vượt trần 80.0."
+      }
+    ],
+    "has_cost_to_serve_exception": false
+  },
+  "selected_provinces": [
+    "Hải Phòng",
+    "Bắc Ninh"
+  ],
+  "proposal_report": {
+    "report_id": "HP-PROPOSAL-20261113-01",
+    "generated_at": "2026-11-13 08:31:20",
+    "company_name": "Công ty Cổ phần Công nghệ Hưng Phát",
+    "solution_name": "Hưng Phát Smart WMS (Hệ thống Quản lý Kho Chuỗi Bán Lẻ)",
+    "selected_provinces": [
+      "Hải Phòng",
+      "Bắc Ninh"
+    ],
+    "executive_summary": "Báo cáo đề xuất chiến lược mở rộng địa bàn kinh doanh của Công ty Hưng Phát cho giải pháp Smart WMS. Sau quá trình sàng lọc 4 địa bàn tiềm năng qua hệ thống Multi-Agent AI (Lane 1), kiểm tra chéo mẫu trích dẫn từ nhân viên PTKD (Lane 2), và rà soát của Trưởng phòng PTKD (Lane 3), chúng tôi kính trình Ban Giám đốc phê duyệt kế hoạch khảo sát thực địa tại 2 địa bàn ưu tiên: **Hải Phòng, Bắc Ninh**.",
+    "detailed_provinces": [
+      {
+        "province": "Hải Phòng",
+        "rank": 1,
+        "final_score": 88.12,
+        "retail_chains": 58,
+        "market_growth": 16.8,
+        "distance_km": 120,
+        "sla_readiness": "Đạt chuẩn SLA 4h trực tiếp",
+        "doc_citations": [
+          "DOC-HP-006",
+          "DOC-HP-002",
+          "DOC-HP-006",
+          "DOC-HP-002"
+        ]
+      },
+      {
+        "province": "Bắc Ninh",
+        "rank": 2,
+        "final_score": 86.85,
+        "retail_chains": 48,
+        "market_growth": 14.5,
+        "distance_km": 40,
+        "sla_readiness": "Đạt chuẩn SLA 4h trực tiếp",
+        "doc_citations": [
+          "DOC-HP-005",
+          "DOC-HP-001",
+          "DOC-HP-005",
+          "DOC-HP-001"
+        ]
+      }
+    ],
+    "survey_agenda": [
+      "SurveyQuestion(question_id='Q-SURVEY-001', province='Hải Phòng', category='Hạ tầng & Thiết bị phần cứng', question_text='Kho hàng của doanh nghiệp tại Hải Phòng hiện đã trang bị mạng WiFi công nghiệp phủ sóng toàn kho và thiết bị quét PDA/Barcode chuyên dụng hay chưa?', target_respondent='Trưởng kho / Quản trị viên CNTT', blindspot_addressed='Xác định chi phí đầu tư thiết bị ngoại vi của khách hàng tại Hải Phòng để tính gói hỗ trợ trọn gói.', priority='HIGH')",
+      "SurveyQuestion(question_id='Q-SURVEY-002', province='Hải Phòng', category='Tích hợp Hệ thống Hiện hữu', question_text='Doanh nghiệp đang vận hành hệ thống kế toán/bán hàng nào? Nếu tích hợp Hưng Phát WMS qua Open API, quy trình kiểm toán nội bộ mất bao lâu để cấp quyền kết nối dữ liệu?', target_respondent='Giám đốc CNTT (CIO) / Trưởng phòng Kế toán', blindspot_addressed='Đo lường thời gian chốt hợp đồng và thời gian triển khai tích hợp kỹ thuật tại Hải Phòng.', priority='HIGH')",
+      "SurveyQuestion(question_id='Q-SURVEY-003', province='Hải Phòng', category='Quy trình Vận hành Thực tế & SLA', question_text='Vào mùa cao điểm hoặc ca đêm, doanh nghiệp có quy định xử lý sự cố kho trong bao lâu? Mức độ chấp nhận xử lý từ xa qua TeamViewer/UltraView so với kỹ sư onsite?', target_respondent='Giám đốc Vận hành (COO) / Trưởng bộ phận Chuỗi Cung ứng', blindspot_addressed='Kiểm chứng tính khả thi của cam kết SLA 4 giờ và nhu cầu bố trí nhân sự tại Hải Phòng.', priority='MEDIUM')",
+      "SurveyQuestion(question_id='Q-SURVEY-004', province='Bắc Ninh', category='Hạ tầng & Thiết bị phần cứng', question_text='Kho hàng của doanh nghiệp tại Bắc Ninh hiện đã trang bị mạng WiFi công nghiệp phủ sóng toàn kho và thiết bị quét PDA/Barcode chuyên dụng hay chưa?', target_respondent='Trưởng kho / Quản trị viên CNTT', blindspot_addressed='Xác định chi phí đầu tư thiết bị ngoại vi của khách hàng tại Bắc Ninh để tính gói hỗ trợ trọn gói.', priority='HIGH')",
+      "SurveyQuestion(question_id='Q-SURVEY-005', province='Bắc Ninh', category='Tích hợp Hệ thống Hiện hữu', question_text='Doanh nghiệp đang vận hành hệ thống kế toán/bán hàng nào? Nếu tích hợp Hưng Phát WMS qua Open API, quy trình kiểm toán nội bộ mất bao lâu để cấp quyền kết nối dữ liệu?', target_respondent='Giám đốc CNTT (CIO) / Trưởng phòng Kế toán', blindspot_addressed='Đo lường thời gian chốt hợp đồng và thời gian triển khai tích hợp kỹ thuật tại Bắc Ninh.', priority='HIGH')",
+      "SurveyQuestion(question_id='Q-SURVEY-006', province='Bắc Ninh', category='Quy trình Vận hành Thực tế & SLA', question_text='Vào mùa cao điểm hoặc ca đêm, doanh nghiệp có quy định xử lý sự cố kho trong bao lâu? Mức độ chấp nhận xử lý từ xa qua TeamViewer/UltraView so với kỹ sư onsite?', target_respondent='Giám đốc Vận hành (COO) / Trưởng bộ phận Chuỗi Cung ứng', blindspot_addressed='Kiểm chứng tính khả thi của cam kết SLA 4 giờ và nhu cầu bố trí nhân sự tại Bắc Ninh.', priority='MEDIUM')"
+    ],
+    "audit_trail_summary": {
+      "total_audit_logs": 1,
+      "doc_ids_referenced": [
+        "DOC-HP-004",
+        "DOC-HP-008",
+        "DOC-HP-002",
+        "DOC-HP-003",
+        "DOC-HP-005",
+        "DOC-HP-001",
+        "DOC-HP-006",
+        "DOC-HP-007"
+      ],
+      "audit_logs": [
+        {
+          "log_id": "LOG-1794533480",
+          "timestamp": "2026-11-13 08:31:20",
+          "actor": "Nguyễn Văn Hùng - Trưởng phòng PTKD",
+          "action": "MANAGER_CONFIRM_SHORTLIST",
+          "target_province": "Hải Phòng,Bắc Ninh",
+          "field_affected": "shortlist_provinces",
+          "previous_value": null,
+          "new_value": [
+            "Hải Phòng",
+            "Bắc Ninh"
+          ],
+          "justification": "Trưởng phòng phê duyệt chính thức 2 địa bàn ưu tiên khảo sát thực địa: Hải Phòng, Bắc Ninh."
+        },
+        {
+          "log_id": "LOG-1794533480",
+          "timestamp": "2026-11-13 08:31:20",
+          "actor": "Nguyễn Văn Hùng - Trưởng phòng PTKD",
+          "action": "FINAL_BOD_SUBMISSION",
+          "target_province": "Hải Phòng,Bắc Ninh",
+          "field_affected": "proposal_approval_status",
+          "previous_value": "DRAFT",
+          "new_value": "APPROVED_BY_BD_MANAGER_SUBMITTED_TO_BOD",
+          "justification": "Hồ sơ đã được kiểm tra chéo 100% trích dẫn Doc_ID và ký duyệt để Ban Giám đốc phê duyệt ngân sách khảo sát."
+        }
+      ]
+    },
+    "approval_status": "APPROVED_BY_BD_MANAGER_SUBMITTED_TO_BOD",
+    "signed_by": "Nguyễn Văn Hùng - Trưởng phòng PTKD",
+    "sign_off_date": "2026-11-13 08:31:20"
+  },
+  "proposal_report_md": "c:\\Agent\\reports\\HP-PROPOSAL-20261113-01.md",
+  "proposal_report_json": "c:\\Agent\\reports\\HP-PROPOSAL-20261113-01.json",
+  "proposal_report_docx": "c:\\Agent\\reports\\HP-PROPOSAL-20261113-01.docx"
+}

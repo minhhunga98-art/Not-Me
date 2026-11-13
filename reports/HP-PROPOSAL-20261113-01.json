@@ -1,0 +1,131 @@
+{
+  "report_id": "HP-PROPOSAL-20261113-01",
+  "generated_at": "2026-11-13 08:31:20",
+  "company_name": "Công ty Cổ phần Công nghệ Hưng Phát",
+  "solution_name": "Hưng Phát Smart WMS (Hệ thống Quản lý Kho Chuỗi Bán Lẻ)",
+  "selected_provinces": [
+    "Hải Phòng",
+    "Bắc Ninh"
+  ],
+  "executive_summary": "Báo cáo đề xuất chiến lược mở rộng địa bàn kinh doanh của Công ty Hưng Phát cho giải pháp Smart WMS. Sau quá trình sàng lọc 4 địa bàn tiềm năng qua hệ thống Multi-Agent AI (Lane 1), kiểm tra chéo mẫu trích dẫn từ nhân viên PTKD (Lane 2), và rà soát của Trưởng phòng PTKD (Lane 3), chúng tôi kính trình Ban Giám đốc phê duyệt kế hoạch khảo sát thực địa tại 2 địa bàn ưu tiên: **Hải Phòng, Bắc Ninh**.",
+  "detailed_provinces": [
+    {
+      "province": "Hải Phòng",
+      "rank": 1,
+      "final_score": 88.12,
+      "retail_chains": 58,
+      "market_growth": 16.8,
+      "distance_km": 120,
+      "sla_readiness": "Đạt chuẩn SLA 4h trực tiếp",
+      "doc_citations": [
+        "DOC-HP-006",
+        "DOC-HP-002",
+        "DOC-HP-006",
+        "DOC-HP-002"
+      ]
+    },
+    {
+      "province": "Bắc Ninh",
+      "rank": 2,
+      "final_score": 86.85,
+      "retail_chains": 48,
+      "market_growth": 14.5,
+      "distance_km": 40,
+      "sla_readiness": "Đạt chuẩn SLA 4h trực tiếp",
+      "doc_citations": [
+        "DOC-HP-005",
+        "DOC-HP-001",
+        "DOC-HP-005",
+        "DOC-HP-001"
+      ]
+    }
+  ],
+  "survey_agenda": [
+    {
+      "question_id": "Q-SURVEY-001",
+      "province": "Hải Phòng",
+      "category": "Hạ tầng & Thiết bị phần cứng",
+      "question_text": "Kho hàng của doanh nghiệp tại Hải Phòng hiện đã trang bị mạng WiFi công nghiệp phủ sóng toàn kho và thiết bị quét PDA/Barcode chuyên dụng hay chưa?",
+      "target_respondent": "Trưởng kho / Quản trị viên CNTT",
+      "blindspot_addressed": "Xác định chi phí đầu tư thiết bị ngoại vi của khách hàng tại Hải Phòng để tính gói hỗ trợ trọn gói.",
+      "priority": "HIGH"
+    },
+    {
+      "question_id": "Q-SURVEY-002",
+      "province": "Hải Phòng",
+      "category": "Tích hợp Hệ thống Hiện hữu",
+      "question_text": "Doanh nghiệp đang vận hành hệ thống kế toán/bán hàng nào? Nếu tích hợp Hưng Phát WMS qua Open API, quy trình kiểm toán nội bộ mất bao lâu để cấp quyền kết nối dữ liệu?",
+      "target_respondent": "Giám đốc CNTT (CIO) / Trưởng phòng Kế toán",
+      "blindspot_addressed": "Đo lường thời gian chốt hợp đồng và thời gian triển khai tích hợp kỹ thuật tại Hải Phòng.",
+      "priority": "HIGH"
+    },
+    {
+      "question_id": "Q-SURVEY-003",
+      "province": "Hải Phòng",
+      "category": "Quy trình Vận hành Thực tế & SLA",
+      "question_text": "Vào mùa cao điểm hoặc ca đêm, doanh nghiệp có quy định xử lý sự cố kho trong bao lâu? Mức độ chấp nhận xử lý từ xa qua TeamViewer/UltraView so với kỹ sư onsite?",
+      "target_respondent": "Giám đốc Vận hành (COO) / Trưởng bộ phận Chuỗi Cung ứng",
+      "blindspot_addressed": "Kiểm chứng tính khả thi của cam kết SLA 4 giờ và nhu cầu bố trí nhân sự tại Hải Phòng.",
+      "priority": "MEDIUM"
+    },
+    {
+      "question_id": "Q-SURVEY-004",
+      "province": "Bắc Ninh",
+      "category": "Hạ tầng & Thiết bị phần cứng",
+      "question_text": "Kho hàng của doanh nghiệp tại Bắc Ninh hiện đã trang bị mạng WiFi công nghiệp phủ sóng toàn kho và thiết bị quét PDA/Barcode chuyên dụng hay chưa?",
+      "target_respondent": "Trưởng kho / Quản trị viên CNTT",
+      "blindspot_addressed": "Xác định chi phí đầu tư thiết bị ngoại vi của khách hàng tại Bắc Ninh để tính gói hỗ trợ trọn gói.",
+      "priority": "HIGH"
+    },
+    {
+      "question_id": "Q-SURVEY-005",
+      "province": "Bắc Ninh",
+      "category": "Tích hợp Hệ thống Hiện hữu",
+      "question_text": "Doanh nghiệp đang vận hành hệ thống kế toán/bán hàng nào? Nếu tích hợp Hưng Phát WMS qua Open API, quy trình kiểm toán nội bộ mất bao lâu để cấp quyền kết nối dữ liệu?",
+      "target_respondent": "Giám đốc CNTT (CIO) / Trưởng phòng Kế toán",
+      "blindspot_addressed": "Đo lường thời gian chốt hợp đồng và thời gian triển khai tích hợp kỹ thuật tại Bắc Ninh.",
+      "priority": "HIGH"
+    },
+    {
+      "question_id": "Q-SURVEY-006",
+      "province": "Bắc Ninh",
+      "category": "Quy trình Vận hành Thực tế & SLA",
+      "question_text": "Vào mùa cao điểm hoặc ca đêm, doanh nghiệp có quy định xử lý sự cố kho trong bao lâu? Mức độ chấp nhận xử lý từ xa qua TeamViewer/UltraView so với kỹ sư onsite?",
+      "target_respondent": "Giám đốc Vận hành (COO) / Trưởng bộ phận Chuỗi Cung ứng",
+      "blindspot_addressed": "Kiểm chứng tính khả thi của cam kết SLA 4 giờ và nhu cầu bố trí nhân sự tại Bắc Ninh.",
+      "priority": "MEDIUM"
+    }
+  ],
+  "audit_trail_summary": {
+    "total_audit_logs": 1,
+    "doc_ids_referenced": [
+      "DOC-HP-004",
+      "DOC-HP-008",
+      "DOC-HP-002",
+      "DOC-HP-003",
+      "DOC-HP-005",
+      "DOC-HP-001",
+      "DOC-HP-006",
+      "DOC-HP-007"
+    ],
+    "audit_logs": [
+      {
+        "log_id": "LOG-1794533480",
+        "timestamp": "2026-11-13 08:31:20",
+        "actor": "Nguyễn Văn Hùng - Trưởng phòng PTKD",
+        "action": "MANAGER_CONFIRM_SHORTLIST",
+        "target_province": "Hải Phòng,Bắc Ninh",
+        "field_affected": "shortlist_provinces",
+        "previous_value": null,
+        "new_value": [
+          "Hải Phòng",
+          "Bắc Ninh"
+        ],
+        "justification": "Trưởng phòng phê duyệt chính thức 2 địa bàn ưu tiên khảo sát thực địa: Hải Phòng, Bắc Ninh."
+      }
+    ]
+  },
+  "approval_status": "PENDING_BOD_SUBMISSION",
+  "signed_by": null,
+  "sign_off_date": null
+}
